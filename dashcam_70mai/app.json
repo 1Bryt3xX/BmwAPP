@@ -1,0 +1,116 @@
+{
+  "id": "dashcam_70mai",
+  "title": "70mai DashCam",
+  "description": "70mai Dash Cam Live View & Video Player for BMW iDrive 7. Stream live RTSP feed, browse Emergency/Parking recordings, and review driving clips on the central display.",
+  "version": "1.0.0",
+  "vendor": "custom",
+  "loggingId": "OAA7",
+  "iconGlyph": "dashcam_70mai",
+  "signals": {
+    "de.bmw.infotainment.vehicle.Vehicle2": {
+      "statusCarSpeed2": "rs"
+    },
+    "de.bmw.infotainment.controlelements.FrontCCU": {
+      "statusRotaryEncoderState": "rs",
+      "statusPushButtonsState": "rs"
+    }
+  },
+  "screens": [
+    {
+      "name": "MAIN",
+      "kind": "canvas",
+      "title": "70mai DashCam",
+      "buttons": [
+        ["BTN_ACTION", "Play / Pause"],
+        ["BTN_PAGE", "Next Tab"],
+        ["BTN_PREV", "Prev Tab"],
+        ["BTN_SETTINGS", "Settings"]
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "key": "cameraIp",
+      "label": "70mai IP address",
+      "type": "choice",
+      "default": "hotspot",
+      "options": [
+        ["hotspot", "70mai Wi-Fi Hotspot (192.168.0.1)"],
+        ["dhcp", "Local Wi-Fi Network / 4G Kit (DHCP)"],
+        ["custom", "Custom IP (192.168.1.99)"]
+      ]
+    },
+    {
+      "key": "cameraModel",
+      "label": "Camera model",
+      "type": "choice",
+      "default": "a800s",
+      "options": [
+        ["a800s", "70mai A800S / A810 (4K HDR Dual)"],
+        ["a500s", "70mai A500S Pro Plus (2.7K)"],
+        ["omni", "70mai Omni X200 (360° AI Guard)"],
+        ["m500", "70mai M500 (1944p eMMC)"],
+        ["generic", "Standard 70mai (RTSP Stream)"]
+      ]
+    },
+    {
+      "key": "streamQuality",
+      "label": "Live stream bitrate",
+      "type": "choice",
+      "default": "high",
+      "options": [
+        ["high", "High (1080p 60 fps VA-API)"],
+        ["med", "Balanced (720p 30 fps)"],
+        ["low", "Low Bandwidth (Quick Connect)"]
+      ]
+    },
+    {
+      "key": "parkedOnly",
+      "label": "Review video only while parked",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "key": "rearCamera",
+      "label": "Rear camera installed",
+      "type": "choice",
+      "default": "yes",
+      "options": [
+        ["yes", "Yes (Front + Rear RC06/RC12)"],
+        ["no", "No (Front Only)"]
+      ]
+    },
+    {
+      "key": "theme",
+      "label": "Colour theme",
+      "type": "choice",
+      "default": "m_tricolour",
+      "options": [
+        ["m_tricolour", "M Tricolour"],
+        ["m_red", "M Red"],
+        ["ice", "Ice White"],
+        ["amber", "Night Amber"]
+      ]
+    },
+    {
+      "key": "layout",
+      "label": "Screen layout",
+      "type": "choice",
+      "default": "full",
+      "options": [
+        ["full", "Full screen"],
+        ["standard", "Standard"]
+      ]
+    },
+    {
+      "key": "renderer",
+      "label": "Renderer",
+      "type": "choice",
+      "default": "auto",
+      "options": [
+        ["auto", "GPU 60 fps (default)"],
+        ["software", "Software"]
+      ]
+    }
+  ]
+}
