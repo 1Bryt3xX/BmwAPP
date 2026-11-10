@@ -1,0 +1,147 @@
+{
+  "id": "sound_studio",
+  "title": "Sound Studio",
+  "description": "Professional Audio DSP, Multi-Band Equalizer, Speaker Staging and Surround Profiles (Harman Kardon, Bowers & Wilkins, RAM) for BMW iDrive 7.",
+  "version": "1.0.0",
+  "vendor": "custom",
+  "loggingId": "OAA6",
+  "iconGlyph": "sound_studio",
+  "signals": {
+    "de.bmw.infotainment.vehicle.Vehicle2": {
+      "statusCarSpeed2": "rs"
+    },
+    "de.bmw.infotainment.controlelements.FrontCCU": {
+      "statusRotaryEncoderState": "rs",
+      "statusPushButtonsState": "rs"
+    },
+    "de.bmw.infotainment.drivingexcitement.FES": {
+      "_optional": "follow driving modes",
+      "statusFESVehicleDynamicSwitchHMI": "rs"
+    },
+    "com.harman.infotainment.systemfunctions.tasu.tasu.InternalTasu": {
+      "_instances": "SystemFunctionsInternalTasuInst1",
+      "_methods": [
+        "sendTasuRequest"
+      ],
+      "_broadcasts": [
+        "sendTasuResponse"
+      ]
+    }
+  },
+  "screens": [
+    {
+      "name": "MAIN",
+      "kind": "canvas",
+      "title": "Sound Studio",
+      "buttons": [
+        ["BTN_PRESET", "Next Preset"],
+        ["BTN_PAGE", "Next Tab"],
+        ["BTN_PREV", "Prev Tab"],
+        ["BTN_SETTINGS", "Settings"]
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "key": "soundSystem",
+      "label": "Audio hardware detected",
+      "type": "choice",
+      "default": "auto",
+      "options": [
+        ["auto", "Auto-detect (RAM / Booster)"],
+        ["bw", "Bowers & Wilkins Diamond 3D"],
+        ["hk", "Harman Kardon Logic 7"],
+        ["hifi", "BMW Hi-Fi System (205 W)"],
+        ["base", "Standard Stereo System"]
+      ]
+    },
+    {
+      "key": "defaultProfile",
+      "label": "Default sound profile",
+      "type": "choice",
+      "default": "studio",
+      "options": [
+        ["studio", "B&W Studio (Pure Mastering)"],
+        ["concert", "Concert Hall (Live Immersion)"],
+        ["stage", "On Stage (Front Clarity)"],
+        ["club", "Club & Bass Boost (Sub Punch)"],
+        ["cinema", "Cinema 3D (Dynamic Surround)"],
+        ["lounge", "Acoustic Lounge (Soft Travel)"]
+      ]
+    },
+    {
+      "key": "surround3d",
+      "label": "3D Immersion surround level",
+      "type": "choice",
+      "default": "mid",
+      "options": [
+        ["off", "Off (Pure Stereo Audiophile)"],
+        ["low", "Low (Subtle Depth)"],
+        ["mid", "Medium (Balanced Staging)"],
+        ["high", "High (Full 3D Dome)"]
+      ]
+    },
+    {
+      "key": "loudnessComp",
+      "label": "Dynamic loudness (bass boost at low vol)",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "key": "speedVolume",
+      "label": "Speed-dependent volume (GAL)",
+      "type": "choice",
+      "default": "3",
+      "options": [
+        ["off", "Off"],
+        ["1", "Level 1 (Subtle)"],
+        ["3", "Level 3 (Adaptive Default)"],
+        ["5", "Level 5 (Highway Max)"]
+      ]
+    },
+    {
+      "key": "asdMode",
+      "label": "Active Sound Design (engine in speakers)",
+      "type": "choice",
+      "default": "oem",
+      "options": [
+        ["oem", "OEM Default (Follows driving mode)"],
+        ["reduced", "Reduced (Quiet cabin)"],
+        ["off", "Muted (Pure music without engine noise)"],
+        ["sport", "Sport+ Enhanced (Throaty exhaust sound)"]
+      ]
+    },
+    {
+      "key": "theme",
+      "label": "Colour theme",
+      "type": "choice",
+      "default": "m_tricolour",
+      "options": [
+        ["m_tricolour", "M Tricolour"],
+        ["m_red", "M Red"],
+        ["ice", "Ice White"],
+        ["amber", "Night Amber"]
+      ]
+    },
+    {
+      "key": "layout",
+      "label": "Screen layout",
+      "type": "choice",
+      "default": "full",
+      "options": [
+        ["full", "Full screen"],
+        ["standard", "Standard"]
+      ]
+    },
+    {
+      "key": "renderer",
+      "label": "Renderer",
+      "type": "choice",
+      "default": "auto",
+      "options": [
+        ["auto", "GPU 60 fps (default)"],
+        ["software", "Software"]
+      ]
+    }
+  ]
+}

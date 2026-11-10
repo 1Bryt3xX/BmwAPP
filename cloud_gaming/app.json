@@ -1,0 +1,136 @@
+{
+  "id": "cloud_gaming",
+  "title": "Cloud Gaming",
+  "description": "Xbox Cloud Gaming & Steam Remote Play on BMW iDrive 7. Play PC & Xbox games on your head unit with Bluetooth/USB controllers, hardware 60 fps decoding and Parked-Only safety.",
+  "version": "1.0.0",
+  "vendor": "custom",
+  "loggingId": "OAA5",
+  "iconGlyph": "cloud_gaming",
+  "signals": {
+    "de.bmw.infotainment.vehicle.Vehicle2": {
+      "statusCarSpeed2": "rs"
+    },
+    "de.bmw.infotainment.controlelements.FrontCCU": {
+      "statusRotaryEncoderState": "rs",
+      "statusPushButtonsState": "rs"
+    }
+  },
+  "screens": [
+    {
+      "name": "MAIN",
+      "kind": "canvas",
+      "title": "Cloud Gaming",
+      "buttons": [
+        ["BTN_PLAY", "Launch Game"],
+        ["BTN_PAGE", "Next Tab"],
+        ["BTN_PREV", "Prev Tab"],
+        ["BTN_SETTINGS", "Settings"]
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "key": "parkedOnly",
+      "label": "Parked only (pauses while driving)",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "key": "platform",
+      "label": "Default cloud platform",
+      "type": "choice",
+      "default": "xbox",
+      "options": [
+        ["xbox", "Xbox Cloud Gaming (xCloud)"],
+        ["steam", "Steam / PC Remote Play (Moonlight)"],
+        ["geforce", "GeForce NOW"]
+      ]
+    },
+    {
+      "key": "resolution",
+      "label": "Stream resolution",
+      "type": "choice",
+      "default": "1920",
+      "options": [
+        ["1920", "1920 x 720 (Ultrawide full-bleed)"],
+        ["1280", "1280 x 720 (16:9 Standard HD)"],
+        ["960", "960 x 540 (Performance mode)"]
+      ]
+    },
+    {
+      "key": "framerate",
+      "label": "Target frame rate",
+      "type": "choice",
+      "default": "60",
+      "options": [
+        ["60", "60 FPS (Ultra Smooth)"],
+        ["30", "30 FPS (Power / Data Saver)"]
+      ]
+    },
+    {
+      "key": "bitrate",
+      "label": "Max stream bitrate",
+      "type": "choice",
+      "default": "20",
+      "options": [
+        ["10", "10 Mbps (Mobile Hotspot)"],
+        ["20", "20 Mbps (Standard 5G)"],
+        ["35", "35 Mbps (Ultra High Quality)"]
+      ]
+    },
+    {
+      "key": "controller",
+      "label": "Controller input driver",
+      "type": "choice",
+      "default": "auto",
+      "options": [
+        ["auto", "Auto-detect (Bluetooth / USB)"],
+        ["xbox", "Xbox Wireless Controller"],
+        ["ps", "PlayStation DualSense / DS4"],
+        ["idrive", "BMW iDrive Rotary Controller"]
+      ]
+    },
+    {
+      "key": "audioSink",
+      "label": "Audio output route",
+      "type": "choice",
+      "default": "bmw",
+      "options": [
+        ["bmw", "Car Speakers (BMW Hi-Fi / HK)"],
+        ["bt_headset", "Bluetooth Headphones / Private"]
+      ]
+    },
+    {
+      "key": "theme",
+      "label": "Colour theme",
+      "type": "choice",
+      "default": "m_tricolour",
+      "options": [
+        ["m_tricolour", "M Tricolour"],
+        ["m_red", "M Red"],
+        ["ice", "Ice White"],
+        ["amber", "Night Amber"]
+      ]
+    },
+    {
+      "key": "layout",
+      "label": "Screen layout",
+      "type": "choice",
+      "default": "full",
+      "options": [
+        ["full", "Full screen"],
+        ["standard", "Standard"]
+      ]
+    },
+    {
+      "key": "renderer",
+      "label": "Renderer",
+      "type": "choice",
+      "default": "auto",
+      "options": [
+        ["auto", "GPU 60 fps (default)"],
+        ["software", "Software"]
+      ]
+    }
+  ]
+}
